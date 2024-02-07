@@ -1,0 +1,32 @@
+project(QExpressServer 
+    LANGUAGES CXX
+    DESCRIPTION "QExpress server library"
+    HOMEPAGE_URL ""
+    VERSION 1.0.0
+)
+
+file(GLOB_RECURSE QEXPRESS_SERVER_HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+file(GLOB_RECURSE QEXPRESS_SERVER_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+
+add_library(${PROJECT_NAME} ${QEXPRESS_SERVER_SOURCE_FILES} ${QEXPRESS_SERVER_HEADER_FILES})
+add_library(${CMAKE_PROJECT_NAME}::Server ALIAS ${PROJECT_NAME})
+
+target_link_libraries(${PROJECT_NAME} 
+                      ${CMAKE_PROJECT_NAME}::QHttp
+                      Qt5::Core Qt5::Network)
+                      
+set_target_properties(
+    ${PROJECT_NAME}
+    PROPERTIES
+    LINKER_LANGUAGE CXX
+    CXX_STANDARD 17
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE}"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib/${CMAKE_BUILD_TYPE}"
+    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/${CMAKE_BUILD_TYPE}"
+)
+
+target_include_directories(
+    ${PROJECT_NAME}
+    PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
+)
