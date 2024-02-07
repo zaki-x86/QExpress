@@ -10,7 +10,7 @@ file(GLOB TEST_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
 foreach(TEST ${TEST_SRCS})
     # WARNING: this only works for CMake v3.14
     get_filename_component(TEST_NAME ${TEST} NAME_WLE)
-    message(STATUS "Built test: ${TEST_NAME}")
+    message(STATUS "Configured test: ${TEST_NAME}")
 
     add_executable(${TEST_NAME} ${TEST})
     set_target_properties(${TEST_NAME}
@@ -23,6 +23,3 @@ foreach(TEST ${TEST_SRCS})
     doctest_discover_tests(${TEST_NAME} -v)
 endforeach()
 
-
-
-#add_test(NAME server_unit_tests COMMAND server_unit_tests)
