@@ -58,7 +58,7 @@ namespace QExpress
     private:
         friend class Server;
         struct RequestImpl;
-        std::unique_ptr<RequestImpl> impl;
+        std::unique_ptr<RequestImpl> Impl;
     };
 } // namespace QExpress
 

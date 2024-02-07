@@ -3,7 +3,7 @@
 namespace QExpress
 {
     Response::Response(Server& app, Request& req)
-        : impl(new ResponseImpl(app, req))
+        : Impl(new ResponseImpl(app, req))
     {
         
     }
@@ -15,12 +15,12 @@ namespace QExpress
     
     Server& Response::app()
     {
-        return impl->_app;
+        return Impl->_app;
     }
     
     Request& Response::request()
     {
-        return impl->_req;
+        return Impl->_req;
     }
     
     bool Response::headersSent()
@@ -45,7 +45,7 @@ namespace QExpress
     
     Cookie& Response::cookie()
     {
-        return impl->_cookie;
+        return Impl->_cookie;
     }
     
     void Response::send(Buffer&)

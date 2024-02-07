@@ -3,7 +3,7 @@
 namespace QExpress
 {
     Request::Request(Server& app, Response& res, Route& route)
-        : impl(new RequestImpl(app, res, route))
+        : Impl(new RequestImpl(app, res, route))
     {
         
     }
@@ -12,86 +12,86 @@ namespace QExpress
 
     Server &Request::app() const
     {
-        return impl->_app;
+        return Impl->_app;
     }
     
     Buffer Request::originalURL() const
     {
-        return impl->originalURL();
+        return Impl->originalURL();
     }
     
     Buffer Request::baseURL() const
     {
-        return impl->baseURL();
+        return Impl->baseURL();
     }
     
     Buffer Request::path() const
     {
-        return impl->path();
+        return Impl->path();
     }
     
     BufferMap Request::body() const
     {
-        return impl->body();
+        return Impl->body();
     }
     
     BufferMap Request::cookies() const
     {
-        return impl->cookies();
+        return Impl->cookies();
     }
     
     Buffer Request::host() const
     {
-        return impl->host();
+        return Impl->host();
     }
     
     Buffer Request::hostname() const
     {
-        return impl->hostname();
+        return Impl->hostname();
     }
     
     BufferMap Request::params() const
     {
-        return impl->params();
+        return Impl->params();
     }
     
     Buffer Request::ip() const
     {
-        return impl->ip();
+        return Impl->ip();
     }
     
     Buffer Request::method() const
     {
-        return impl->method();
+        return Impl->method();
     }
     
     Buffer Request::protocol() const
     {
-        return impl->protocol();
+        return Impl->protocol();
     }
     
     Route& Request::route() const
     {
-        return impl->_route;
+        return Impl->_route;
     }
     
     bool Request::secure() const
     {
-        return impl->protocol() == "https";
+        return Impl->protocol() == "https";
     }
     
     BufferMap Request::signedCookies() const
     {
-        return impl->signedCookies();
+        return Impl->signedCookies();
     }
     
     std::vector<Buffer> Request::subdomains() const
     {
-        return impl->subdomains();
+        return Impl->subdomains();
     }
     
     Buffer Request::get(Buffer& name)
     {
-        return impl->get(name);
+        return Impl->get(name);
     }
 }

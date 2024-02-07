@@ -35,7 +35,7 @@ namespace QExpress
 
     private:
         struct ConnectionHandlerImpl;
-        ConnectionHandlerImpl *m_Impl;
+        ConnectionHandlerImpl *Impl;
     };
 
     

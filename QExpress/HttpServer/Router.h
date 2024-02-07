@@ -44,7 +44,7 @@ namespace QExpress
 
     private:
         struct RouterImpl;
-        std::unique_ptr<RouterImpl> impl;
+        std::unique_ptr<RouterImpl> Impl;
     };
 
 } // namespace QExpress

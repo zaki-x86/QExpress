@@ -28,7 +28,7 @@ namespace QExpress
 
     private:
         struct ResponseImpl;
-        std::unique_ptr<ResponseImpl> impl;
+        std::unique_ptr<ResponseImpl> Impl;
     }; 
 } // namespace QExpress
 

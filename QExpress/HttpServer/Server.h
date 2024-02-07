@@ -76,7 +76,7 @@ namespace QExpress
     
     private:
         struct ServerImpl;
-        std::unique_ptr<ServerImpl> m_Impl;
+        std::unique_ptr<ServerImpl> Impl;
     };
     
     

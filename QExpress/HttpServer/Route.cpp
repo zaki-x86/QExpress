@@ -3,7 +3,7 @@
 namespace QExpress
 {
     Route::Route()
-        : impl(new RouteImpl())
+        : Impl(new RouteImpl())
     {
         
     }
